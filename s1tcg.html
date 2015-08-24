@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <title>S1TCG</title>
+    <script type="text/javascript" src="./lib/jquery-1.11.2.min.js"></script>
+    <script type="text/javascript" src="./script/s1tcg.js"></script>
+    <link rel="stylesheet" type="text/css" href="./style/s1tcg.css"></link>
+    <link rel="stylesheet" type="text/css" href="./style/base.css"></link>
+  </head>
+  <body>
+    <div id="selection">
+      <p>Select header</p>
+    </div>
+    <div>
+      <p>Type in your text</p>
+      <input type="text" maxlength=16 id="text" name="text" value="RED HILL" pattern="[A-IL-PR-TY-Z ]*"></input>
+      <p>(No J, K, Q, U, V, W and X | No "ZONE" | Max. 16 characters)</p>
+    </div>
+    <div>
+      $<input type="text" maxlength=2 id="ypos" name="ypos" value="F8" pattern="[0-9a-fA-F]*"></input>
+      $<input type="text" maxlength=2 id="xpos" name="xpos" value="D4" pattern="[0-9a-fA-F]*"></input>
+    </div>
+    <div id="codeout"><pre><code id="out"></code></pre></div>
+    <div id="copyright"><p>Soni's Sonic 1 Title Card Generator Copyright (C) 2015 Soni L. (SoniEx2) <a href="./LICENSE.txt">MIT license</a>. <a href="https://github.com/SoniEx2/ssu">Source Code</a>.</p></div>
+  </body>
+</html>
