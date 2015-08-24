@@ -30,13 +30,15 @@ $("document").ready(function() {
       fr.onload = function(fd) {
         var dataView = new jDataView(fd.target.result);
         var out = f(dataView);
-        var s = out.getBytes(out.byteLength, 0, true, true).map(ntos).join("");
+        var l = out.byteLength;
+        var a = out.getBytes(l, 0, true, true);
+        var s = a.map(ntos).join("");
         var b64 = btoa(s);
         $("#out").html(b64);
         if (liveDownload) {
           (URL || webkitURL).revokeObjectURL(liveDownload);
         }
-        liveDownload = (URL || webkitURL).createObjectURL(new Blob([s]));
+        liveDownload = (URL || webkitURL).createObjectURL(new Blob([new Uint8Array(a)], {type: 'application/octet-stream'}));
         var download = $("<a></a>", {
           "href": liveDownload,
           "download": selectedFile.name + ".bin",
