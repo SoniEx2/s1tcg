@@ -12,6 +12,7 @@ function ntos(n) {
 
 var decompressors = {
   "Kosinski": compression.kosdec
+  //,"Nemesis": compression.nemdec
 }
 
 $("document").ready(function() {
