@@ -12,7 +12,7 @@ function ntos(n) {
 
 var decompressors = {
   "Kosinski": compression.kosdec
-  //,"Nemesis": compression.nemdec
+  ,"Nemesis": compression.nemdec
 }
 
 $("document").ready(function() {
@@ -25,12 +25,12 @@ $("document").ready(function() {
     var b = $("<a></a>");
     b.append(d);
     var f = decompressors[d];
-    b.click(function() {
-      var selectedFile = document.getElementById(d).files[0];
+    b.click({id: d, f: f}, function(e) {
+      var selectedFile = document.getElementById(e.data.id).files[0];
       var fr = new FileReader();
       fr.onload = function(fd) {
         var dataView = new jDataView(fd.target.result);
-        var out = f(dataView);
+        var out = e.data.f(dataView);
         var l = out.byteLength;
         var a = out.getBytes(l, 0, true, true);
         var s = a.map(ntos).join("");
